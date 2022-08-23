@@ -19,6 +19,8 @@ export class MainComponent implements OnInit {
 
   account: Account | null = null;
 
+  menu = 'dashboard';
+
   constructor(
     private loginService: LoginService,
     private accountService: AccountService,
@@ -28,6 +30,10 @@ export class MainComponent implements OnInit {
     rootRenderer: RendererFactory2
   ) {
     this.renderer = rootRenderer.createRenderer(document.querySelector('html'), null);
+  }
+
+  activateMenu(menu: string) {
+    this.menu = menu;
   }
 
   public menuToggle() {
@@ -40,40 +46,6 @@ export class MainComponent implements OnInit {
     toggle.toggleClass('bx-x');
     bodypd.toggleClass('body-pd');
     headerpd.toggleClass('body-pd');
-
-    // const showNavbar = (toggleId, navId, bodyId, headerId) => {
-    //   const toggle = document.getElementById(toggleId),
-    //     nav = document.getElementById(navId),
-    //     bodypd = document.getElementById(bodyId),
-    //     headerpd = document.getElementById(headerId);
-
-    //   // Validate that all variables exist
-    //   if (toggle && nav && bodypd && headerpd) {
-    //     toggle.addEventListener('click', () => {
-    //       // show navbar
-    //       nav.classList.toggle('show');
-    //       // change icon
-    //       toggle.classList.toggle('bx-x');
-    //       // add padding to body
-    //       bodypd.classList.toggle('body-pd');
-    //       // add padding to header
-    //       headerpd.classList.toggle('body-pd');
-    //     });
-    //   }
-    // };
-
-    // showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header');
-
-    // /*===== LINK ACTIVE =====*/
-    // const linkColor = document.querySelectorAll('.nav_link');
-
-    // function colorLink() {
-    //   if (linkColor) {
-    //     linkColor.forEach(l => l.classList.remove('active'));
-    //     this.classList.add('active');
-    //   }
-    // }
-    // linkColor.forEach(l => l.addEventListener('click', colorLink));
   }
 
   ngOnInit(): void {
@@ -84,7 +56,9 @@ export class MainComponent implements OnInit {
       this.account = account;
     });
 
-    //this.init();
+    $('.nav_link').click(function () {
+      alert('Handler for .click() called.');
+    });
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
