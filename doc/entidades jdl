@@ -1,0 +1,21 @@
+
+entity Usuario {
+	hash String
+}
+
+entity Conexao {
+	hash String required required
+	url String
+    usuario String
+    senha String
+    banco String
+    schema String
+}
+
+relationship OneToOne {
+	Usuario{user(login)} to User
+}
+
+relationship ManyToOne {
+	Usuario{conexoes(hash)} to Conexao
+}
