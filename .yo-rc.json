@@ -1,0 +1,60 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "dashboard",
+    "blueprints": [],
+    "buildTool": "maven",
+    "cacheProvider": "ehcache",
+    "clientFramework": "angularX",
+    "clientPackageManager": "npm",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1661226780590,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "devServerPort": 4200,
+    "dtoSuffix": "DTO",
+    "enableGradleEnterprise": false,
+    "enableHibernateCache": true,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": false,
+    "entitySuffix": "",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "7.9.2",
+    "jwtSecretKey": "YjBhNDRhMGE4YWNjMmI0NWI1ZTQwMGI4YTlhMzZjZWFmYmFlMTIxNGUzZTMyMDU4YmIzMWY0MjAzMDM3ZWFhODVmZjI2ZGUyYzMwNmM1MmY5M2QxODNhNTJkODk5MDRmNTMxMWEyMWZiZWQ3NmI0MDVmY2FlNmZmNjJmODYzYzc=",
+    "languages": ["en", "fr"],
+    "messageBroker": false,
+    "microfrontend": false,
+    "microfrontends": [],
+    "nativeLanguage": "pt-br",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-es-entity-reindexer",
+        "version": "1.0.1"
+      },
+      {
+        "name": "generator-jhipster-postgres-uuid",
+        "version": "0.0.6"
+      },
+      {
+        "name": "generator-jhipster-gql",
+        "version": "0.1.2"
+      }
+    ],
+    "packageName": "br.eti.frankley.dashboard",
+    "pages": [],
+    "prodDatabaseType": "postgresql",
+    "reactive": false,
+    "searchEngine": "elasticsearch",
+    "serverPort": "8080",
+    "serverSideOptions": ["searchEngine:elasticsearch"],
+    "serviceDiscoveryType": "no",
+    "skipCheckLengthOfIdentifier": false,
+    "skipFakeData": false,
+    "skipUserManagement": false,
+    "testFrameworks": [],
+    "websocket": false,
+    "withAdminUi": true
+  }
+}
