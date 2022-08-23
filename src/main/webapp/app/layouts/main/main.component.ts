@@ -8,6 +8,8 @@ import { LoginService } from '../../../app/login/login.service';
 import { AccountService } from '../../../app/core/auth/account.service';
 import { Account } from '../../../app/core/auth/account.model';
 
+declare const $: any;
+
 @Component({
   selector: 'jhi-main',
   templateUrl: './main.component.html',
@@ -28,6 +30,52 @@ export class MainComponent implements OnInit {
     this.renderer = rootRenderer.createRenderer(document.querySelector('html'), null);
   }
 
+  public menuToggle() {
+    let toggle = $('#header-toggle');
+    let nav = $('#nav-bar');
+    let bodypd = $('#body-pd');
+    let headerpd = $('#header');
+
+    nav.toggleClass('show');
+    toggle.toggleClass('bx-x');
+    bodypd.toggleClass('body-pd');
+    headerpd.toggleClass('body-pd');
+
+    // const showNavbar = (toggleId, navId, bodyId, headerId) => {
+    //   const toggle = document.getElementById(toggleId),
+    //     nav = document.getElementById(navId),
+    //     bodypd = document.getElementById(bodyId),
+    //     headerpd = document.getElementById(headerId);
+
+    //   // Validate that all variables exist
+    //   if (toggle && nav && bodypd && headerpd) {
+    //     toggle.addEventListener('click', () => {
+    //       // show navbar
+    //       nav.classList.toggle('show');
+    //       // change icon
+    //       toggle.classList.toggle('bx-x');
+    //       // add padding to body
+    //       bodypd.classList.toggle('body-pd');
+    //       // add padding to header
+    //       headerpd.classList.toggle('body-pd');
+    //     });
+    //   }
+    // };
+
+    // showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header');
+
+    // /*===== LINK ACTIVE =====*/
+    // const linkColor = document.querySelectorAll('.nav_link');
+
+    // function colorLink() {
+    //   if (linkColor) {
+    //     linkColor.forEach(l => l.classList.remove('active'));
+    //     this.classList.add('active');
+    //   }
+    // }
+    // linkColor.forEach(l => l.addEventListener('click', colorLink));
+  }
+
   ngOnInit(): void {
     // try to log in automatically
     this.accountService.identity().subscribe();
@@ -35,6 +83,8 @@ export class MainComponent implements OnInit {
     this.accountService.getAuthenticationState().subscribe(account => {
       this.account = account;
     });
+
+    //this.init();
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
