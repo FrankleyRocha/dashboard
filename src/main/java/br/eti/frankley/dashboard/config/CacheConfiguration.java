@@ -48,6 +48,9 @@ public class CacheConfiguration {
             createCache(cm, br.eti.frankley.dashboard.domain.User.class.getName());
             createCache(cm, br.eti.frankley.dashboard.domain.Authority.class.getName());
             createCache(cm, br.eti.frankley.dashboard.domain.User.class.getName() + ".authorities");
+            createCache(cm, br.eti.frankley.dashboard.domain.Usuario.class.getName());
+            createCache(cm, br.eti.frankley.dashboard.domain.Conexao.class.getName());
+            createCache(cm, br.eti.frankley.dashboard.domain.Api.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,29 @@
+{
+  "applications": ["dashboard"],
+  "changelogDate": "20220823065315",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "api",
+  "fields": [
+    {
+      "fieldName": "hash",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "urlBase",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "token",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Api",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

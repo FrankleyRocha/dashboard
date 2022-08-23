@@ -1,0 +1,29 @@
+{
+  "dashboardApp": {
+    "conexao": {
+      "home": {
+        "title": "Conexaos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Conexao",
+        "createOrEditLabel": "Create or edit a Conexao",
+        "notFound": "No Conexaos found"
+      },
+      "created": "A new Conexao is created with identifier {{ param }}",
+      "updated": "A Conexao is updated with identifier {{ param }}",
+      "deleted": "A Conexao is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Conexao {{ id }}?"
+      },
+      "detail": {
+        "title": "Conexao"
+      },
+      "id": "ID",
+      "hash": "Hash",
+      "url": "Url",
+      "usuario": "Usuario",
+      "senha": "Senha",
+      "banco": "Banco",
+      "schema": "Schema"
+    }
+  }
+}

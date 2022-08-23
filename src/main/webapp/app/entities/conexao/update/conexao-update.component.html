@@ -1,0 +1,69 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-conexao-heading" data-cy="ConexaoCreateUpdateHeading" jhiTranslate="dashboardApp.conexao.home.createOrEditLabel">
+        Create or edit a Conexao
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dashboardApp.conexao.hash" for="field_hash">Hash</label>
+          <input type="text" class="form-control" name="hash" id="field_hash" data-cy="hash" formControlName="hash" />
+          <div *ngIf="editForm.get('hash')!.invalid && (editForm.get('hash')!.dirty || editForm.get('hash')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('hash')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dashboardApp.conexao.url" for="field_url">Url</label>
+          <input type="text" class="form-control" name="url" id="field_url" data-cy="url" formControlName="url" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dashboardApp.conexao.usuario" for="field_usuario">Usuario</label>
+          <input type="text" class="form-control" name="usuario" id="field_usuario" data-cy="usuario" formControlName="usuario" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dashboardApp.conexao.senha" for="field_senha">Senha</label>
+          <input type="text" class="form-control" name="senha" id="field_senha" data-cy="senha" formControlName="senha" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dashboardApp.conexao.banco" for="field_banco">Banco</label>
+          <input type="text" class="form-control" name="banco" id="field_banco" data-cy="banco" formControlName="banco" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="dashboardApp.conexao.schema" for="field_schema">Schema</label>
+          <input type="text" class="form-control" name="schema" id="field_schema" data-cy="schema" formControlName="schema" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

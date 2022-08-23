@@ -6,6 +6,6 @@ export const configurationRoute: Route = {
   path: '',
   component: ConfigurationComponent,
   data: {
-    pageTitle: 'Configuração',
+    pageTitle: 'configuration.title',
   },
 };

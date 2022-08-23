@@ -20,11 +20,6 @@ logging:
     org.hibernate.SQL: DEBUG
     br.eti.frankley.dashboard: DEBUG
 
-management:
-  health:
-    elasticsearch:
-      enabled: false
-
 spring:
   devtools:
     restart:
@@ -45,8 +40,6 @@ spring:
       auto-commit: false
   jpa:
     database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
-  elasticsearch:
-    uris: http://localhost:9200
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
@@ -59,20 +52,6 @@ spring:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
     cache: false
-  sleuth:
-    # https://github.com/spring-projects/spring-framework/issues/27844#issuescomment-1002866885
-    # https://github.com/spring-cloud/spring-cloud-sleuth/issues/2094
-    async:
-      enabled: false
-    enabled: false
-    sampler:
-      probability: 1 # report 100% of traces
-  zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
-    base-url: http://localhost:9411
-    enabled: false
-    locator:
-      discovery:
-        enabled: true
 
 server:
   port: 8080
@@ -103,7 +82,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: YjBhNDRhMGE4YWNjMmI0NWI1ZTQwMGI4YTlhMzZjZWFmYmFlMTIxNGUzZTMyMDU4YmIzMWY0MjAzMDM3ZWFhODVmZjI2ZGUyYzMwNmM1MmY5M2QxODNhNTJkODk5MDRmNTMxMWEyMWZiZWQ3NmI0MDVmY2FlNmZmNjJmODYzYzc=
+        base64-secret: YmUxYmM5NzczYTU5YTcwNjk2ZDQ0NTEyZTg0MDA0ZmQ4Mjg5YmUwZWE1NTQ4NDA0YmU5NzdlZTM1ZmE0MmI1MTc0ZjM0YWUxYzc4NTI1YTEwMWNlMjU3ZGViNjlhMTQwODYzYmI5NmNmZjljMWFiYWNkODE3YWI2MzhiMjJiNmQ=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

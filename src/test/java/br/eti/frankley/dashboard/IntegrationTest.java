@@ -2,7 +2,6 @@ package br.eti.frankley.dashboard;
 
 import br.eti.frankley.dashboard.DashboardApp;
 import br.eti.frankley.dashboard.config.AsyncSyncConfiguration;
-import br.eti.frankley.dashboard.config.EmbeddedElasticsearch;
 import br.eti.frankley.dashboard.config.EmbeddedSQL;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -17,7 +16,6 @@ import org.springframework.test.annotation.DirtiesContext;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @SpringBootTest(classes = { DashboardApp.class, AsyncSyncConfiguration.class })
-@EmbeddedElasticsearch
 @EmbeddedSQL
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public @interface IntegrationTest {

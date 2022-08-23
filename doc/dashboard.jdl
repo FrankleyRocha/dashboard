@@ -1,0 +1,44 @@
+
+application {
+  config {
+    baseName dashboard,
+    applicationType monolith,
+    packageName br.eti.frankley.dashboard,
+    authenticationType jwt,
+    devDatabaseType postgresql
+    prodDatabaseType postgresql,
+    clientFramework angular
+  }
+  entities *
+}
+
+entity Usuario {
+	hash String required required
+}
+
+entity Api {
+	hash String required required
+	urlBase String
+    token String
+}
+
+entity Conexao {
+	hash String required required
+	url String
+    usuario String
+    senha String
+    banco String
+    schema String
+}
+
+relationship OneToOne {
+	Usuario{user(login)} to User
+}
+
+relationship ManyToOne {
+	Usuario{conexoes(hash)} to Conexao
+    Usuario{apis(hash)} to Api
+}
+
+paginate * with pagination
+service all with serviceClass

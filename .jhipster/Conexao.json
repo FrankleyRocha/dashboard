@@ -1,0 +1,41 @@
+{
+  "applications": ["dashboard"],
+  "changelogDate": "20220823060618",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "conexao",
+  "fields": [
+    {
+      "fieldName": "hash",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "url",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "usuario",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "senha",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "banco",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schema",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Conexao",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

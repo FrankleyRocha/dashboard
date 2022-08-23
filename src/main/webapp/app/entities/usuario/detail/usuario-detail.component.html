@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="usuario">
+      <h2 data-cy="usuarioDetailsHeading"><span jhiTranslate="dashboardApp.usuario.detail.title">Usuario</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ usuario.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="dashboardApp.usuario.hash">Hash</span></dt>
+        <dd>
+          <span>{{ usuario.hash }}</span>
+        </dd>
+        <dt><span jhiTranslate="dashboardApp.usuario.user">User</span></dt>
+        <dd>
+          <span>{{ usuario.user?.login }}</span>
+        </dd>
+        <dt><span jhiTranslate="dashboardApp.usuario.conexoes">Conexoes</span></dt>
+        <dd>
+          <div *ngIf="usuario.conexoes">
+            <a [routerLink]="['/conexao', usuario.conexoes.id, 'view']">{{ usuario.conexoes?.hash }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="dashboardApp.usuario.apis">Apis</span></dt>
+        <dd>
+          <div *ngIf="usuario.apis">
+            <a [routerLink]="['/api', usuario.apis.id, 'view']">{{ usuario.apis?.hash }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/usuario', usuario.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

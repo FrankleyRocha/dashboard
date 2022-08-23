@@ -16,7 +16,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.FieldType;
 
 /**
  * A user.
@@ -24,7 +23,6 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 @Entity
 @Table(name = "jhi_user")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@org.springframework.data.elasticsearch.annotations.Document(indexName = "user")
 public class User extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

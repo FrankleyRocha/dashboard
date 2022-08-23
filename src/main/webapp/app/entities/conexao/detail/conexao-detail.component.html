@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="conexao">
+      <h2 data-cy="conexaoDetailsHeading"><span jhiTranslate="dashboardApp.conexao.detail.title">Conexao</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ conexao.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="dashboardApp.conexao.hash">Hash</span></dt>
+        <dd>
+          <span>{{ conexao.hash }}</span>
+        </dd>
+        <dt><span jhiTranslate="dashboardApp.conexao.url">Url</span></dt>
+        <dd>
+          <span>{{ conexao.url }}</span>
+        </dd>
+        <dt><span jhiTranslate="dashboardApp.conexao.usuario">Usuario</span></dt>
+        <dd>
+          <span>{{ conexao.usuario }}</span>
+        </dd>
+        <dt><span jhiTranslate="dashboardApp.conexao.senha">Senha</span></dt>
+        <dd>
+          <span>{{ conexao.senha }}</span>
+        </dd>
+        <dt><span jhiTranslate="dashboardApp.conexao.banco">Banco</span></dt>
+        <dd>
+          <span>{{ conexao.banco }}</span>
+        </dd>
+        <dt><span jhiTranslate="dashboardApp.conexao.schema">Schema</span></dt>
+        <dd>
+          <span>{{ conexao.schema }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/conexao', conexao.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

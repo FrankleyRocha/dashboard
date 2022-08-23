@@ -6,6 +6,6 @@ export const LOGIN_ROUTE: Route = {
   path: '',
   component: LoginComponent,
   data: {
-    pageTitle: 'Autenticação',
+    pageTitle: 'login.title',
   },
 };

@@ -8,7 +8,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import br.eti.frankley.dashboard.IntegrationTest;
 import br.eti.frankley.dashboard.domain.User;
 import br.eti.frankley.dashboard.repository.UserRepository;
-import br.eti.frankley.dashboard.repository.search.UserSearchRepository;
 import br.eti.frankley.dashboard.security.AuthoritiesConstants;
 import javax.persistence.EntityManager;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,14 +32,6 @@ class PublicUserResourceIT {
 
     @Autowired
     private UserRepository userRepository;
-
-    /**
-     * This repository is mocked in the br.eti.frankley.dashboard.repository.search test package.
-     *
-     * @see br.eti.frankley.dashboard.repository.search.UserSearchRepositoryMockConfiguration
-     */
-    @Autowired
-    private UserSearchRepository mockUserSearchRepository;
 
     @Autowired
     private EntityManager em;

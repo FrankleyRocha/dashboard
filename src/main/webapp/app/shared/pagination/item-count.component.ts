@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
  */
 @Component({
   selector: 'jhi-item-count',
-  template: ` <div>Mostrando {{ first }} - {{ second }} de {{ total }} resultados.</div> `,
+  template: ` <div jhiTranslate="global.item-count" [translateValues]="{ first: first, second: second, total: total }"></div> `,
 })
 export class ItemCountComponent {
   /**
