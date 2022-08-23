@@ -37,15 +37,10 @@ export class MainComponent implements OnInit {
   }
 
   public menuToggle() {
-    let toggle = $('#header-toggle');
-    let nav = $('#nav-bar');
-    let bodypd = $('#body-pd');
-    let headerpd = $('#header');
-
-    nav.toggleClass('show');
-    toggle.toggleClass('bx-x');
-    bodypd.toggleClass('body-pd');
-    headerpd.toggleClass('body-pd');
+    $('#nav-bar').toggleClass('show');
+    $('#header-toggle').toggleClass('bx-x');
+    $('#body-pd').toggleClass('body-pd');
+    $('#header').toggleClass('body-pd');
   }
 
   ngOnInit(): void {
@@ -54,10 +49,6 @@ export class MainComponent implements OnInit {
 
     this.accountService.getAuthenticationState().subscribe(account => {
       this.account = account;
-    });
-
-    $('.nav_link').click(function () {
-      alert('Handler for .click() called.');
     });
 
     this.router.events.subscribe(event => {
