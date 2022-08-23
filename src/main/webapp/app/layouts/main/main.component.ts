@@ -4,7 +4,9 @@ import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import dayjs from 'dayjs/esm';
 
-import { AccountService } from 'app/core/auth/account.service';
+import { LoginService } from '../../../app/login/login.service';
+import { AccountService } from '../../../app/core/auth/account.service';
+import { Account } from '../../../app/core/auth/account.model';
 
 @Component({
   selector: 'jhi-main',
@@ -13,7 +15,10 @@ import { AccountService } from 'app/core/auth/account.service';
 export class MainComponent implements OnInit {
   private renderer: Renderer2;
 
+  account: Account | null = null;
+
   constructor(
+    private loginService: LoginService,
     private accountService: AccountService,
     private titleService: Title,
     private router: Router,
@@ -26,6 +31,10 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     // try to log in automatically
     this.accountService.identity().subscribe();
+
+    this.accountService.getAuthenticationState().subscribe(account => {
+      this.account = account;
+    });
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -54,5 +63,10 @@ export class MainComponent implements OnInit {
       pageTitle = 'global.title';
     }
     this.translateService.get(pageTitle).subscribe(title => this.titleService.setTitle(title));
+  }
+
+  logout(): void {
+    this.loginService.logout();
+    this.router.navigate(['/login']);
   }
 }

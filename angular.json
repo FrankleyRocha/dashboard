@@ -35,8 +35,17 @@
               "src/main/webapp/manifest.webapp",
               "src/main/webapp/robots.txt"
             ],
-            "styles": ["src/main/webapp/content/scss/vendor.scss", "src/main/webapp/content/scss/global.scss"],
-            "scripts": []
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/boxicons/css/boxicons.min.css",
+              "src/main/webapp/content/scss/vendor.scss",
+              "src/main/webapp/content/scss/global.scss"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/boxicons/dist/boxicons.js"
+            ]
           },
           "configurations": {
             "production": {
