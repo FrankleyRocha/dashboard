@@ -14,51 +14,136 @@
 
 <header class="header" id="header" *ngIf="account !== null">
   <div (click)="menuToggle()" class="header_toggle"><i class="bx bx-menu" id="header-toggle"></i></div>
-  <div class="header_img"><img src="/content/images/rocha.png" alt="" /></div>
+
+  <span *ngIf="!account?.imageUrl">
+    <fa-icon icon="user"></fa-icon>
+    <span>{{ account?.login }}</span>
+  </span>
+  <div class="header_img" *ngIf="account?.imageUrl">
+    <span>
+      <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
+    </span>
+  </div>
 </header>
 <div class="l-navbar" id="nav-bar">
   <nav class="nav">
     <div *ngIf="account !== null">
-      <a href="#" class="nav_logo">
+      <!-- <a 
+        routerLink="/"
+        
+        href="#" class="nav_logo">
+        <fa-icon icon="home"></fa-icon>
+        <span jhiTranslate="global.menu.home">Home</span>
+      </a> -->
+
+      <a routerLink="/" class="nav_logo">
         <i class="bx bx-layer nav_logo-icon"></i>
         <span class="nav_logo-name">BBBootstrap</span>
       </a>
+
       <div class="nav_list">
-        <a class="nav_link active" [ngClass]="{ active: menu === 'dashboard' }" (click)="activateMenu('dashboard')">
+        <a
+          routerLink="account/settings"
+          routerLinkActive="active"
+          class="nav_link"
+          [ngClass]="{ active: menu === 'account/settings' }"
+          (click)="activateMenu('account/settings')"
+        >
+          <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
+          <span jhiTranslate="global.menu.account.settings">Settings</span>
+        </a>
+
+        <a
+          routerLink="account/password"
+          routerLinkActive="active"
+          class="nav_link"
+          [ngClass]="{ active: menu === 'account/password' }"
+          (click)="activateMenu('account/password')"
+        >
+          <fa-icon icon="lock" [fixedWidth]="true"></fa-icon>
+          <span jhiTranslate="global.menu.account.password">Password</span>
+        </a>
+
+        <!-- <a class="nav_link active" [ngClass]="{ active: menu === 'dashboard' }" (click)="activateMenu('dashboard')">
           <i class="bx bx-grid-alt nav_icon"></i>
           <span class="nav_name">Dashboard</span>
-        </a>
+        </a> -->
+
         <a
-          href="#"
           class="nav_link"
           *jhiHasAnyAuthority="'ROLE_ADMIN'"
-          [ngClass]="{ active: menu === 'users' }"
-          (click)="activateMenu('users')"
+          [ngClass]="{ active: menu === 'admin/user-management' }"
+          (click)="activateMenu('admin/user-management')"
+          routerLink="admin/user-management"
+          routerLinkActive="active"
         >
-          <i class="bx bx-user nav_icon"></i>
-          <span class="nav_name">Users</span>
+          <fa-icon icon="users" [fixedWidth]="true"></fa-icon>
+          <span jhiTranslate="global.menu.admin.userManagement">User management</span>
         </a>
-        <a href="#" class="nav_link" [ngClass]="{ active: menu === 'messages' }" (click)="activateMenu('messages')">
-          <i class="bx bx-message-square-detail nav_icon"></i>
-          <span class="nav_name">Messages</span>
+
+        <a
+          routerLink="admin/metrics"
+          routerLinkActive="active"
+          class="nav_link"
+          [ngClass]="{ active: menu === 'admin/metrics' }"
+          (click)="activateMenu('admin/metrics')"
+        >
+          <fa-icon icon="tachometer-alt" [fixedWidth]="true"></fa-icon>
+          <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
         </a>
-        <a href="#" class="nav_link" [ngClass]="{ active: menu === 'bookmark' }" (click)="activateMenu('bookmark')">
+
+        <a
+          routerLink="admin/configuration"
+          routerLinkActive="active"
+          class="nav_link"
+          [ngClass]="{ active: menu === 'admin/configuration' }"
+          (click)="activateMenu('admin/configuration')"
+        >
+          <fa-icon icon="cogs" [fixedWidth]="true"></fa-icon>
+          <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
+        </a>
+
+        <a
+          routerLink="admin/logs"
+          routerLinkActive="active"
+          class="nav_link"
+          [ngClass]="{ active: menu === 'admin/logs' }"
+          (click)="activateMenu('admin/logs')"
+        >
+          <fa-icon icon="tasks" [fixedWidth]="true"></fa-icon>
+          <span jhiTranslate="global.menu.admin.logs">Logs</span>
+        </a>
+
+        <a
+          routerLink="admin/docs"
+          routerLinkActive="active"
+          class="nav_link"
+          [ngClass]="{ active: menu === 'admin/docs' }"
+          (click)="activateMenu('admin/docs')"
+        >
+          <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
+          <span jhiTranslate="global.menu.admin.apidocs">API</span>
+        </a>
+
+        <a class="nav_link" [ngClass]="{ active: menu === 'bookmark' }" (click)="activateMenu('bookmark')">
           <i class="bx bx-bookmark nav_icon"></i>
           <span class="nav_name">Bookmark</span>
         </a>
-        <a href="#" class="nav_link" [ngClass]="{ active: menu === 'files' }" (click)="activateMenu('files')">
+        <a class="nav_link" [ngClass]="{ active: menu === 'files' }" (click)="activateMenu('files')">
           <i class="bx bx-folder nav_icon"></i>
           <span class="nav_name">Files</span>
         </a>
-        <a href="#" class="nav_link" [ngClass]="{ active: menu === 'stats' }" (click)="activateMenu('stats')">
+        <a class="nav_link" [ngClass]="{ active: menu === 'stats' }" (click)="activateMenu('stats')">
           <i class="bx bx-bar-chart-alt-2 nav_icon"></i>
           <span class="nav_name">Stats</span>
         </a>
       </div>
     </div>
     <a (click)="logout()" class="nav_link" *ngIf="account !== null">
-      <i class="bx bx-log-out nav_icon"></i>
-      <span class="nav_name">SignOut</span>
+      <!-- <i class="bx bx-log-out nav_icon"></i>
+      <span class="nav_name">SignOut</span> -->
+      <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
+      <span jhiTranslate="global.menu.account.logout">Sign out</span>
     </a>
   </nav>
 </div>
